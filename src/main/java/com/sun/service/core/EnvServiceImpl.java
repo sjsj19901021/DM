@@ -11,6 +11,7 @@ import com.sun.base.Window;
 import com.sun.exception.DmException;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -60,7 +61,8 @@ public class EnvServiceImpl implements EnvService {
 
     private List<User> loadUserInfo() throws IOException {
         Properties properties = new Properties();
-        properties.load(EnvServiceImpl.class.getResourceAsStream(userPath));
+        InputStream inStream = getResource();
+        properties.load(inStream);
         String prefix = "user";
         List<User> users = new ArrayList<>();
         int i = 1;
@@ -75,6 +77,22 @@ public class EnvServiceImpl implements EnvService {
             i++;
         }
         return users;
+    }
+
+    private InputStream getResource() {
+        String property = System.getProperty("user.dir");
+        String outPath = property + "/user.properties";
+        System.out.println("outPath" + outPath);
+        InputStream outConfig = EnvServiceImpl.class.getResourceAsStream(outPath);
+        try {
+            if (outConfig == null || outConfig.available() < 10) {
+                InputStream stream = EnvServiceImpl.class.getResourceAsStream(userPath);
+                return stream;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("读取user.properties配置错误");
+        }
+        return outConfig;
     }
 
     private IdmSoft registerDM(String dmID) {
