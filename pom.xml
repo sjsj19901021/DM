@@ -16,8 +16,6 @@
 
 
     <properties>
-        <!-- 项目说明文档目录 -->
-        <project.document.directory>src/main/resources</project.document.directory>
         <!-- 项目配置文件目录 -->
         <project.config.directory>src/main/resources</project.config.directory>
         <!-- 项目编码 -->
@@ -38,6 +36,7 @@
     </dependencies>
 
     <build>
+        <finalName>DM-1.0</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -49,7 +48,7 @@
                         <manifest>
                             <mainClass>com.sun.Main</mainClass>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
+                            <!--<classpathPrefix>lib/</classpathPrefix>-->
                         </manifest>
                         <manifestEntries>
                             <Class-Path>./</Class-Path>
@@ -61,6 +60,7 @@
                         <exclude>**/zip/</exclude>
                         <exclude>**/dll/</exclude>
                         <exclude>/*.xml</exclude>
+                        <exclude>/*.bat</exclude>
                     </excludes>
                 </configuration>
             </plugin>

@@ -26,7 +26,7 @@
         <!-- 把项目自己编译出来的可执行jar，打包进zip文件的根目录 -->
         <fileSet>
             <directory>${project.build.directory}</directory>
-            <outputDirectory></outputDirectory>
+            <outputDirectory>lib</outputDirectory>
             <includes>
                 <include>*.jar</include>
             </includes>
@@ -38,19 +38,20 @@
         ${projet.document.directory}是pom.xml中自己配置的
          -->
         <fileSet>
-            <directory>${project.document.directory}</directory>
+            <directory>${project.config.directory}</directory>
             <outputDirectory>env</outputDirectory>
             <includes>
                 <include>**/dll/**</include>
                 <include>**/zip/**</include>
             </includes>
         </fileSet>
+        <fileSet>
+            <directory>${project.config.directory}</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>*.bat</include>
+            </includes>
+        </fileSet>
 
-        <!--
-        把项目相关的说明文档(除了readme文档)，
-        打包进zip文件根目录下的document目录
-        (这里针对document/exclode.txt文件)
-        ${project.document.directory}是在pom.xml中自己配置的
-        -->
     </fileSets>
 </assembly>
