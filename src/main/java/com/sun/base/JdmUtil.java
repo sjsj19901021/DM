@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
 public class JdmUtil {
     public static void setLibPath() {
         try {
-            String libraryPath = ClassLoader.class.getResource("/").getPath();
+            String libraryPath = ClassLoader.class.getResource("/dll").getPath();
             Field userPathsField = ClassLoader.class.getDeclaredField("usr_paths");
             userPathsField.setAccessible(true);
             String[] paths = (String[]) userPathsField.get(null);
@@ -18,10 +18,10 @@ public class JdmUtil {
                 if (libraryPath.equals(paths[i])) {
                     continue;
                 }
-                System.out.println(paths[i]);
                 sb.append(paths[i]).append(';');
             }
             sb.append(libraryPath);
+            System.out.println(sb.toString());
             System.setProperty("java.library.path", sb.toString());
             final Field sysPathsField = ClassLoader.class.getDeclaredField("sys_paths");
             sysPathsField.setAccessible(true);
