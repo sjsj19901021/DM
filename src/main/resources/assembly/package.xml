@@ -32,11 +32,14 @@
             </includes>
         </fileSet>
 
-        <!--
-        把项目readme说明文档，打包进zip文件根目录下
-        (这里针对目录document/readme.txt文件)
-        ${projet.document.directory}是pom.xml中自己配置的
-         -->
+        <fileSet>
+            <directory>${project.config.directory}</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>**/images/**</include>
+            </includes>
+        </fileSet>
+
         <fileSet>
             <directory>${project.config.directory}</directory>
             <outputDirectory>env</outputDirectory>

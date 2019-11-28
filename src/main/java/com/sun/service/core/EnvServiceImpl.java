@@ -82,7 +82,6 @@ public class EnvServiceImpl implements EnvService {
     private InputStream getResource() {
         String property = System.getProperty("user.dir");
         String outPath = property + "/user.properties";
-        System.out.println("outPath" + outPath);
         InputStream outConfig = EnvServiceImpl.class.getResourceAsStream(outPath);
         try {
             if (outConfig == null || outConfig.available() < 10) {
