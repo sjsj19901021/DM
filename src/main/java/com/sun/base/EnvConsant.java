@@ -9,6 +9,8 @@ public class EnvConsant {
 
     public static final double PIC_SIM = 0.9;
 
-    public static final String ROOT_PATH = System.getProperty("user.dir") + "/images/";
+    public static final String ROOT_IMAGE_PATH = System.getProperty("user.dir") + "/images/";
+
+    public static final String ROOT_PATH = System.getProperty("user.dir");
 
 }

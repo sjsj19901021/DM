@@ -14,7 +14,7 @@ public class DevTest {
 
     public static void main(String[] args) {
         FileBatchReader reader = new FileBatchReader();
-        List<FileCodeBlock> rend = reader.rend(new File("D:\\DM\\src\\main\\resources\\scrip\\测试.txt"));
+        List<FileCodeBlock> rend = reader.rend(new File("D:\\DM\\src\\main\\resources\\script\\测试.txt"));
         TaskPeerManager.INSTANCE.parseFileCodeBlocks(rend);
         System.out.println("------------");
     }

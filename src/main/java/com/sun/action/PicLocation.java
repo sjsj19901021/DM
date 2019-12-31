@@ -20,7 +20,7 @@ public class PicLocation implements Location {
 
 
     public PicLocation(String picPath) {
-        this.picPath = EnvConsant.ROOT_PATH + picPath;
+        this.picPath = EnvConsant.ROOT_IMAGE_PATH + picPath;
     }
 
     public static PicLocation create(String pic) {

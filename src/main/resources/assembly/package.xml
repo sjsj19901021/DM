@@ -42,6 +42,22 @@
 
         <fileSet>
             <directory>${project.config.directory}</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>**/script/**</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>${project.config.directory}</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>**/word/**</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>${project.config.directory}</directory>
             <outputDirectory>env</outputDirectory>
             <includes>
                 <include>**/dll/**</include>
