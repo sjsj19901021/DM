@@ -36,4 +36,8 @@ public enum TaskPeerManager {
         return taskPeerMap.get(flag);
     }
 
+    public List<TaskPeer> getAllTaskPeer() {
+        return taskPeerList;
+    }
+
 }
